@@ -1,0 +1,52 @@
+<div class="register-box">
+  <div class="register-logo">
+    <a><b>Bit</b>LAB</a>
+  </div>
+
+  <div class="card">
+    <div class="card-body register-card-body">
+      <p class="login-box-msg">Регистрация</p>
+      <form [formGroup]="registerForm">
+        <div class="input-group mb-3">
+          <input formControlName="username" type="text" class="form-control" placeholder="Имя пользователя">
+          <div class="input-group-append">
+            <div class="input-group-text" [ngClass]="{'text-danger' : exists}">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="text-danger" *ngIf="error">
+          <span>{{error}}</span>
+        </div>
+        <div class="input-group mb-3">
+          <input formControlName="password" type="password" class="form-control" placeholder="Пароль">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input formControlName="confirmPassword" type="password" class="form-control" placeholder="Повторите пароль">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!-- /.col -->
+          <div class="col-12">
+            <button [disabled]="!registerForm.valid || exists" (click)="register()"  type="submit" class="btn btn-primary btn-block">Зарегистрироваться</button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
+
+      <div class="mt-3">
+        <a routerLink="/auth" class="text-center">Перейти к авторизации</a>
+      </div>
+    </div>
+    <!-- /.form-box -->
+  </div><!-- /.card -->
+</div>

@@ -1,0 +1,8 @@
+<div class="card card-primary">
+  <div class="card-header">
+    <h3 class="card-title">Добавление поста</h3>
+  </div>
+  <app-post-form [post]="emptyPost"
+                 (formCancelled)="formCancelled()"
+                 (validForm)="addPost($event)"></app-post-form>
+</div>
